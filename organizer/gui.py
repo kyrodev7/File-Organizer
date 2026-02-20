@@ -10,12 +10,17 @@ def start_app():
     label = tk.Label(root, text="Select a folder to organize", font=("Arial", 12))
     label.pack(pady=20)
 
+    label2 = tk.Label(root, text="Ready", font=("Arial", 12))
+    label2.pack(pady=20)
+
     def choose_folder():
         path = filedialog.askdirectory()
         if path:
             try:
+                label2.config(text="Organizing...")
                 organize_folder(path)
                 messagebox.showinfo("Success", "Folder organized successfully!")
+                label2.config(text="Organized!")
             except Exception as e:
                 messagebox.showerror("Error", str(e))
 
