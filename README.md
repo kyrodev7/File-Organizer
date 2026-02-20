@@ -17,4 +17,5 @@ Built with Python, Tkinter, and JSON configuration.
 3. Files are moved into their corresponding folders.
 4. All actions are logged in `logs/app.log`.
 
-## Project Structure
+## Updates
+- Added status label that shows progress during organization (Feb 2026)
