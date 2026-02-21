@@ -19,3 +19,4 @@ Built with Python, Tkinter, and JSON configuration.
 
 ## Updates
 - Added status label that shows progress during organization (Feb 2026)
+- Added a full dark mode toggle with the ability to switch back to light mode (Feb 2026)
