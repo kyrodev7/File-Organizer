@@ -5,7 +5,7 @@ from organizer.core import organize_folder
 def start_app():
     root = tk.Tk()
     root.title("File Organizer Pro")
-    root.geometry("400x200")
+    root.geometry("400x250")
 
     label = tk.Label(root, text="Select a folder to organize", font=("Arial", 12))
     label.pack(pady=20)
