@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from organizer.core import organize_folder
+from organizer.core import unorganize_folder
+
 
 def start_app():
     root = tk.Tk()
@@ -22,6 +24,7 @@ def start_app():
          label.config(bg="black", fg="white")
          label2.config(bg="black", fg="white")
          btn.config(bg="black", fg="white")
+         Unbtn.config(bg="black", fg="white")
          dark_button.config(bg="black", fg="white", text="Light Mode")
          current_theme = "dark"
       else:
@@ -29,6 +32,7 @@ def start_app():
          label.config(bg="white", fg="black")
          label2.config(bg="white", fg="black")
          btn.config(bg="white", fg="black")
+         Unbtn.config(bg="white", fg="black")
          dark_button.config(bg="white", fg="black", text="Dark Mode")
          current_theme = "light"
 
@@ -43,8 +47,22 @@ def start_app():
             except Exception as e:
                 messagebox.showerror("Error", str(e))
 
+    def choose_folder2():
+        path = filedialog.askdirectory()
+        if path:
+            try:
+                label2.config(text="Restoring...")
+                unorganize_folder(path)
+                messagebox.showinfo("Success", "Folder restored successfully!")
+                label2.config(text="Restored!")
+            except Exception as e:
+                messagebox.showerror("Error", str(e))
+
     btn = tk.Button(root, text="Choose Folder", command=choose_folder, width=20)
     btn.pack(pady=10)
+
+    Unbtn = tk.Button(root, text="Undo Organization", command=choose_folder2, width=20)
+    Unbtn.pack(pady=10)
 
     dark_button = tk.Button(root, text="Dark Mode", command=enable_dark_mode)
     dark_button.pack()

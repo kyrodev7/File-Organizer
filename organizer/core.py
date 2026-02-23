@@ -20,3 +20,28 @@ def organize_folder(path):
                     shutil.move(full_path, os.path.join(target_folder, filename))
                     log(f"Moved {filename} → {folder}")
                     break
+
+def unorganize_folder(path):
+   
+    for item in os.listdir(path):
+        item_path = os.path.join(path, item)
+
+    
+        if os.path.isdir(item_path):
+
+            
+            for filename in os.listdir(item_path):
+                file_path = os.path.join(item_path, filename)
+
+                
+                if os.path.isfile(file_path):
+                    shutil.move(file_path, os.path.join(path, filename))
+
+
+            if not os.listdir(item_path):
+                os.rmdir(item_path)
+
+
+
+    # update status label
+    # show popup
